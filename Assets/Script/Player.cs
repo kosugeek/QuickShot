@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         if ( Input.GetKeyDown(KeyCode.Return) )
         {
-
+            manager.PushButton(this.gameObject);
         }
     }
 }

@@ -28,16 +28,17 @@ public class GameManager : MonoBehaviour
     private State gameState = State.READY;
 
     // プレイヤー
-    public GameObject player;
+    public Player player;
 
     // CPU
-    public GameObject computer;
+    public NPCPlayer computer;
 
 
     void Start ()
     {
         // ゲーム終了まで
         currentTime = Time.time + timeMin + (float)rnd.Next(timeRange);
+        computer.FireTime = currentTime;
         AudioSource.PlayClipAtPoint(startClip, transform.position);
     }
 
@@ -56,12 +57,21 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == State.PLAYING)
         {
-            // プレイ中だったら先に押した方を勝ちとして判定
+            gameState = State.RESULT;
+            icon.renderer.enabled = false;
 
+            if (sender == player)
+            {
+                // プレイヤーのほうが早かった場合は勝利
+            }
+            else if (sender == computer)
+            {
+                //
+            }
         }
         else
         {
-            // それ以外の場合(フライング)はsenderを負けとして判定
+            // それ以外の場合(フライング)
 
         }
     }
