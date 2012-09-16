@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    public GameManager manager;
 
+    // Use this for initialization
     void Start ()
     {
 
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         if ( Input.GetKeyDown(KeyCode.Return) )
         {
-
+            transform.localPosition += Vector3.forward * 10f;
         }
     }
 }

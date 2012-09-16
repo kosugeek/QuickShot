@@ -27,7 +27,13 @@ public class GameManager : MonoBehaviour
     // ゲーム開始状態
     private State gameState = State.READY;
 
-    //
+    // プレイヤー
+    public GameObject player;
+
+    // CPU
+    public GameObject computer;
+
+
     void Start ()
     {
         // ゲーム終了まで
@@ -43,6 +49,20 @@ public class GameManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(playingClip, transform.position);
             icon.renderer.enabled = true;
             gameState = State.PLAYING;
+        }
+    }
+
+    public void PushButton(GameObject sender)
+    {
+        if (gameState == State.PLAYING)
+        {
+            // プレイ中だったら先に押した方を勝ちとして判定
+
+        }
+        else
+        {
+            // それ以外の場合(フライング)はsenderを負けとして判定
+
         }
     }
 }
